@@ -87,8 +87,16 @@ public class SanPhamServlet extends HttpServlet {
     }
     @SneakyThrows
     private void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("da vao day");
+
+//        System.out.println("da vao day");
+//
+//        String danhMucId = request.getParameter("danhMuc");
+//        System.out.println(danhMucId);
+//        DanhMuc danhMuc = new DanhMuc();
+//        danhMuc.setDanhMucId(Integer.parseInt(danhMucId));
+//
 //        SanPham sanPham = new SanPham();
+//        sanPham.setDanhMuc(danhMuc);
 //        BeanUtils.populate(sanPham,request.getParameterMap());
 //        sanPhamRepo.addorUpdate(sanPham);
 //        load(request, response);

@@ -14,7 +14,8 @@
 <body>
 <form action="/sanpham/update?sanPhamId=${sp.sanPhamId}" method="post">
   <label >TenSanPham</label>
-  <input type="text" name="tenSanPham" value="${sp.tenSanPham}" > <br>
+  <input type="text" name="tenSanPham" value="${sp.tenSanPham}" >
+  <br>
   <label >Gia</label>
   <input type="text" name="gia" value="${sp.gia}"> <br>
   <label >SoLuong</label>

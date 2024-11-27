@@ -25,6 +25,7 @@
                 document.getElementById("tenSanPham").value = response.tenSanPham
                 document.getElementById("soLuong").value = response.soLuong
                 document.getElementById("gia").value = response.gia
+                document.getElementById("danhMuc").value = response.danhMuc.danhMucId
             }
         })
     }
@@ -39,7 +40,7 @@
         <label >SoLuong</label>
         <input type="text" name="soLuong" id="soLuong"> <br>
         <label >TenDanhMuc</label> <br>
-        <select name="danhMuc" >'
+        <select name="danhMuc" id="danhMuc">'
             <c:forEach var="dm" items="${listdm}">
                 <option value="${dm.danhMucId}">${dm.tenDanhMuc}</option>
             </c:forEach>
@@ -54,7 +55,9 @@
         <td>Gia</td>
         <td>SoLuong</td>
         <td>TenDanhMuc</td>
-        <td>Hanh Dong</td>
+        <c:if test="${user != null && user.role == 'admin'}">
+            <td>Hanh Dong</td>
+        </c:if>
     </tr>
     <c:forEach items="${listsp}" var="sp" varStatus="i">
         <tr>
@@ -63,17 +66,13 @@
             <td>${sp.gia}</td>
             <td>${sp.soLuong}</td>
             <td>${sp.danhMuc.tenDanhMuc}</td>
-            <td>
-                <c:if test="${user != null && user.role == 'admin'}">
+            <c:if test="${user != null && user.role == 'admin'}">
+                <td>
                     <a href="/sanpham/detail?sanPhamId=${sp.sanPhamId}"><button type="submit">Detail</button></a>
-                </c:if>
-                <c:if test="${user != null && user.role == 'admin'}">
                     <a href="/sanpham/delete?sanPhamId=${sp.sanPhamId}"><button type="submit">Delete</button></a>
-                </c:if>
-                <c:if test="${user != null && user.role == 'admin'}">
                     <button onclick="handlerCLick(${sp.sanPhamId})">Click me</button>
-                </c:if>
-            </td>
+                </td>
+            </c:if>
         </tr>
     </c:forEach>
 </table>
